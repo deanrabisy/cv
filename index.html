@@ -1,0 +1,926 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Dean Rabisy | CV</title>
+  <meta name="description" content="CV of Dean Rabisy: learning design, research, operations, and product-minded problem solving.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="preload" as="image" href="assets/banner-structured-option-3.png" fetchpriority="high">
+  <link rel="preload" as="image" href="assets/cv-nav-live-style-alpha/portfolio-off.png">
+  <link rel="preload" as="image" href="assets/cv-nav-live-style-alpha/linkedin-off.png">
+  <link rel="preload" as="image" href="assets/cv-nav-live-style-alpha/phone-off.png">
+  <link rel="preload" as="image" href="assets/email-envelope-closed.png">
+  <link rel="preload" as="image" href="assets/email-letter.png">
+  <style>
+    :root {
+      --font-body: Aptos, "Aptos Display", ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      --font-flow: "Nunito Sans", Aptos, "Aptos Display", ui-sans-serif, system-ui, sans-serif;
+      --ink: #172224;
+      --muted: #607176;
+      --paper: #f7fbfa;
+      --surface: #ffffff;
+      --wash: #e6f3f3;
+      --line: #d2e3e3;
+      --aqua: #54bfd0;
+      --blue: #4f8199;
+      --gold: #d6a64b;
+      --shadow: 0 18px 46px rgba(23, 34, 36, .1);
+      --max: 1080px;
+      --radius: 8px;
+      --content-indent: clamp(22px, 3vw, 34px);
+      --bullet-indent: 1.7rem;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      color: var(--ink);
+      background: var(--paper);
+      font: 16px/1.58 var(--font-body);
+      text-rendering: optimizeLegibility;
+    }
+
+    a {
+      color: inherit;
+    }
+
+    img {
+      display: block;
+      width: 100%;
+    }
+
+    .wrap {
+      width: min(var(--max), calc(100% - clamp(36px, 9vw, 150px)));
+      margin: 0 auto;
+    }
+
+    .site-nav {
+      position: sticky;
+      top: 0;
+      z-index: 30;
+      border-bottom: 1px solid rgba(23, 26, 24, .08);
+      background: rgba(247, 251, 250, .92);
+      backdrop-filter: blur(14px);
+    }
+
+    .nav-inner {
+      width: calc(100% - clamp(24px, 4.5vw, 64px));
+      min-height: 70px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: clamp(18px, 3vw, 40px);
+    }
+
+    .brand-name {
+      display: inline-flex;
+      align-items: baseline;
+      gap: 10px;
+      color: var(--ink);
+      line-height: 1.1;
+      text-decoration: none;
+      white-space: nowrap;
+    }
+
+    .brand-name strong {
+      font-size: clamp(1.22rem, 1.9vw, 1.62rem);
+      font-weight: 520;
+    }
+
+    .brand-name span {
+      color: var(--muted);
+      font-size: .94rem;
+      font-weight: 400;
+    }
+
+    .brand-name strong::after {
+      content: "";
+      display: inline-block;
+      width: 4px;
+      height: 4px;
+      margin-left: 10px;
+      border-radius: 50%;
+      background: var(--blue);
+      vertical-align: .18em;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      gap: 8px;
+      min-width: 0;
+      color: var(--muted);
+      font-size: .9rem;
+      flex: 0 0 auto;
+    }
+
+    .nav-links a {
+      padding: 7px 11px;
+      border-radius: 999px;
+      text-decoration: none;
+    }
+
+    .nav-links a:hover,
+    .nav-links a:focus-visible {
+      color: var(--ink);
+      background: var(--wash);
+      outline: none;
+    }
+
+    .nav-visual-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 2px 7px 2px 10px;
+      color: var(--ink);
+      text-decoration: none;
+    }
+
+    .nav-phone-link {
+      padding-left: 2px;
+    }
+
+    .nav-action-label {
+      font-size: .85rem;
+      font-weight: 400;
+      line-height: 1;
+      white-space: nowrap;
+    }
+
+    .nav-icon {
+      flex: 0 0 auto;
+      position: relative;
+      display: block;
+      width: 50px;
+      height: 42px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, .72);
+      filter: drop-shadow(0 7px 9px rgba(23, 34, 36, .16));
+      transition: transform .24s ease, filter .24s ease;
+    }
+
+    .nav-icon img {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      image-rendering: auto;
+      transition: opacity .22s ease, transform .3s ease, filter .3s ease;
+      transform: translateY(0) scale(.9);
+    }
+
+    .nav-icon .icon-on {
+      opacity: 0;
+      transform: translateY(0) scale(.9);
+    }
+
+    .nav-phone-link .nav-icon img {
+      transform: translateY(0) scale(.9) scaleX(-1);
+    }
+
+    .nav-phone-link .nav-icon .icon-on {
+      transform: translateY(0) scale(.9) scaleX(-1);
+    }
+
+    .nav-visual-link:hover .icon-off,
+    .nav-visual-link:focus-visible .icon-off {
+      opacity: 0;
+      transform: translateY(0) scale(.9);
+    }
+
+    .nav-phone-link:hover .icon-off,
+    .nav-phone-link:focus-visible .icon-off {
+      transform: translateY(0) scale(.9) scaleX(-1);
+    }
+
+    .nav-visual-link:hover .icon-on,
+    .nav-visual-link:focus-visible .icon-on {
+      opacity: 1;
+      transform: translateY(-1px) scale(.99);
+      filter: drop-shadow(0 4px 8px rgba(36, 94, 104, .14));
+    }
+
+    .nav-phone-link:hover .icon-on,
+    .nav-phone-link:focus-visible .icon-on {
+      transform: translateY(-1px) scale(.99) scaleX(-1);
+    }
+
+    .nav-visual-link:hover .nav-icon,
+    .nav-visual-link:focus-visible .nav-icon {
+      transform: translateY(-1px);
+      filter: drop-shadow(0 10px 13px rgba(23, 34, 36, .2));
+    }
+
+    .mail-icon {
+      flex: 0 0 auto;
+      position: relative;
+      display: block;
+      width: 66px;
+      height: 54px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, .72);
+      text-decoration: none;
+      filter: drop-shadow(0 7px 9px rgba(23, 34, 36, .18));
+      transition: transform .22s ease, filter .22s ease;
+    }
+
+    .mail-icon:hover,
+    .mail-icon:focus-visible {
+      transform: translateY(-2px);
+      filter: drop-shadow(0 11px 14px rgba(23, 34, 36, .24));
+      outline: none;
+    }
+
+    .mail-icon img {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      transition: opacity .22s ease, transform .28s ease;
+    }
+
+    .mail-icon .mail-open {
+      opacity: 0;
+      transform: translateY(0) scale(1);
+    }
+
+    .mail-icon:hover .mail-closed,
+    .mail-icon:focus-visible .mail-closed,
+    .nav-contact:hover .mail-closed,
+    .nav-contact:focus-visible .mail-closed,
+    .nav-contact-group:hover .mail-closed,
+    .nav-contact-group:focus-within .mail-closed {
+      opacity: 0;
+      transform: translateY(0) scale(1);
+    }
+
+    .mail-icon:hover .mail-open,
+    .mail-icon:focus-visible .mail-open,
+    .nav-contact:hover .mail-open,
+    .nav-contact:focus-visible .mail-open,
+    .nav-contact-group:hover .mail-open,
+    .nav-contact-group:focus-within .mail-open {
+      opacity: 1;
+      transform: translateY(-2px) scale(1.1) rotate(-3deg);
+    }
+
+    .nav-contact {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 2px 0 2px 9px;
+      color: var(--ink);
+      text-decoration: none;
+    }
+
+    .nav-contact > span:first-child {
+      font-weight: 400;
+    }
+
+    .nav-contact .mail-icon {
+      width: 50px;
+      height: 42px;
+    }
+
+    .nav-contact-group {
+      position: relative;
+      display: inline-flex;
+      align-items: center;
+      margin-left: 4px;
+      padding-right: 4px;
+    }
+
+    .copy-email,
+    .copy-phone {
+      position: absolute;
+      right: -1px;
+      bottom: 3px;
+      display: inline-grid;
+      place-items: center;
+      width: 22px;
+      height: 22px;
+      padding: 0;
+      border: 0;
+      border-radius: 999px;
+      color: rgba(23, 34, 36, .74);
+      background: rgba(255, 255, 255, .72);
+      box-shadow: 0 6px 12px rgba(23, 34, 36, .14);
+      font: inherit;
+      cursor: pointer;
+      transition: background .2s ease, box-shadow .2s ease, transform .2s ease, filter .2s ease;
+      z-index: 3;
+    }
+
+    .copy-email svg,
+    .copy-phone svg {
+      display: block;
+      width: 14px;
+      height: 14px;
+      pointer-events: none;
+      stroke: #172224;
+      stroke-width: 2.1;
+      transition: transform .2s ease, stroke .2s ease;
+    }
+
+    .copy-email-note,
+    .copy-phone-note {
+      position: absolute;
+      top: calc(100% + 10px);
+      right: -2px;
+      z-index: 20;
+      width: max-content;
+      max-width: min(260px, 80vw);
+      padding: 8px 10px;
+      border: 1px solid rgba(36, 94, 104, .16);
+      border-radius: 12px;
+      color: #172224;
+      background: rgba(255, 255, 255, .94);
+      box-shadow: 0 14px 28px rgba(23, 34, 36, .16);
+      font-size: .82rem;
+      line-height: 1.2;
+      white-space: nowrap;
+      opacity: 0;
+      pointer-events: none;
+      transform: translateY(-4px);
+      transition: opacity .18s ease, transform .18s ease;
+    }
+
+    .copy-email:hover,
+    .copy-email:focus-visible,
+    .copy-phone:hover,
+    .copy-phone:focus-visible {
+      outline: none;
+      transform: translateY(-1px) scale(1.08);
+      background: rgba(255, 255, 255, .88);
+      box-shadow: 0 8px 16px rgba(23, 34, 36, .18);
+      filter: drop-shadow(0 0 8px rgba(180, 231, 226, .34));
+    }
+
+    .copy-email:hover svg,
+    .copy-email:focus-visible svg,
+    .copy-phone:hover svg,
+    .copy-phone:focus-visible svg {
+      transform: rotate(-5deg) scale(1.08);
+      stroke: #245e68;
+    }
+
+    .copy-email:hover .copy-email-note,
+    .copy-email:focus-visible .copy-email-note,
+    .copy-email.copied .copy-email-note,
+    .copy-phone:hover .copy-phone-note,
+    .copy-phone:focus-visible .copy-phone-note,
+    .copy-phone.copied .copy-phone-note {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .banner-strip {
+      position: sticky;
+      top: 70px;
+      z-index: 20;
+      height: clamp(86px, 13vw, 128px);
+      overflow: hidden;
+      background: var(--wash);
+      border-bottom: 1px solid rgba(36, 94, 104, .08);
+      clip-path: ellipse(84% 72% at 50% 0);
+    }
+
+    .banner-strip img {
+      height: 100%;
+      object-fit: cover;
+      object-position: center 35%;
+      filter: saturate(1.08) contrast(.98) brightness(1.02);
+      opacity: .58;
+      transform: scaleY(-1);
+    }
+
+    .cv-main {
+      padding: clamp(20px, 3.2vw, 34px) 0 clamp(58px, 8vw, 96px);
+    }
+
+    .cv-section {
+      display: block;
+      scroll-margin-top: 92px;
+    }
+
+    .cv-section + .cv-section {
+      margin-top: clamp(26px, 3.8vw, 42px);
+      padding-top: clamp(24px, 3.6vw, 38px);
+      border-top: 1px solid rgba(36, 94, 104, .12);
+    }
+
+    .cv-section h1,
+    .cv-section h2 {
+      margin: 0 0 clamp(12px, 1.8vw, 18px);
+      color: #245e68;
+      font-family: var(--font-flow);
+      font-size: clamp(1.45rem, 2.15vw, 1.9rem);
+      font-weight: 800;
+      line-height: 1.1;
+      letter-spacing: 0;
+    }
+
+    .section-frame {
+      padding: 0;
+      border: 0;
+      border-radius: 0;
+      background: transparent;
+      box-shadow: none;
+    }
+
+    .eyebrow {
+      margin: 0 0 12px;
+      color: #245e68;
+      font-family: var(--font-flow);
+      font-size: .78rem;
+      font-weight: 800;
+      letter-spacing: .18em;
+      text-transform: uppercase;
+    }
+
+    h2,
+    h3,
+    h4,
+    p {
+      margin-top: 0;
+    }
+
+    .lead {
+      margin-bottom: 0;
+      padding-left: var(--content-indent);
+      color: #26383b;
+      font-size: clamp(1.08rem, 1.55vw, 1.34rem);
+      line-height: 1.48;
+    }
+
+    .timeline {
+      display: grid;
+      gap: clamp(24px, 3.6vw, 38px);
+    }
+
+    .role {
+      display: block;
+      padding-left: var(--content-indent);
+    }
+
+    .role + .role {
+      border-top: 1px solid rgba(36, 94, 104, .12);
+      padding-top: clamp(24px, 3.6vw, 38px);
+    }
+
+    .role-title {
+      margin-bottom: 4px;
+      color: #245e68;
+      font-family: var(--font-flow);
+      font-size: clamp(1.18rem, 1.72vw, 1.5rem);
+      font-weight: 760;
+      line-height: 1.18;
+      letter-spacing: 0;
+    }
+
+    .role-body {
+      margin-left: 0;
+    }
+
+    .role-meta {
+      margin-bottom: 12px;
+      color: var(--muted);
+      font-size: clamp(1.12rem, 1.5vw, 1.38rem);
+      font-weight: 520;
+      line-height: 1.28;
+    }
+
+    .role-body ul {
+      margin: 0;
+      padding-left: var(--bullet-indent);
+      color: #2c3c40;
+      font-size: clamp(1.08rem, 1.55vw, 1.34rem);
+      line-height: 1.48;
+    }
+
+    .role-body li::marker {
+      color: #245e68;
+    }
+
+    .role-body li + li {
+      margin-top: 9px;
+    }
+
+    .skill-cloud {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .chip {
+      display: inline-flex;
+      align-items: center;
+      min-height: 30px;
+      padding: 5px 11px;
+      border: 1px solid rgba(36, 94, 104, .16);
+      border-radius: 999px;
+      color: #245e68;
+      background: rgba(230, 243, 243, .72);
+      font-size: .85rem;
+      font-weight: 720;
+      line-height: 1.15;
+    }
+
+    .education-list {
+      display: grid;
+      gap: 18px;
+      margin: 0;
+    }
+
+    .education-line {
+      margin: 0;
+      padding-left: var(--content-indent);
+      color: #2c3c40;
+      font-size: clamp(1.08rem, 1.55vw, 1.34rem);
+      line-height: 1.48;
+    }
+
+    .education-line strong {
+      color: #245e68;
+      font-weight: 520;
+    }
+
+    .education-list div {
+      padding-bottom: 18px;
+      border-bottom: 1px solid rgba(36, 94, 104, .12);
+    }
+
+    .education-list div:last-child {
+      padding-bottom: 0;
+      border-bottom: 0;
+    }
+
+    .education-list dt {
+      color: var(--ink);
+      font-weight: 800;
+      line-height: 1.25;
+    }
+
+    .education-list dd {
+      margin: 5px 0 0;
+      color: var(--muted);
+    }
+
+    .skill-groups {
+      display: grid;
+      gap: clamp(18px, 2.6vw, 26px);
+      color: #2c3c40;
+      font-size: clamp(1.08rem, 1.55vw, 1.34rem);
+      line-height: 1.48;
+    }
+
+    .skill-group {
+      padding-left: var(--content-indent);
+    }
+
+    .skill-title {
+      margin: 0 0 4px;
+      color: #245e68;
+      font-family: var(--font-flow);
+      font-size: clamp(1.18rem, 1.72vw, 1.5rem);
+      font-weight: 760;
+      line-height: 1.18;
+      letter-spacing: 0;
+    }
+
+    .skill-line {
+      margin: 0;
+      padding-left: var(--bullet-indent);
+    }
+
+    .skill-separator {
+      color: #245e68;
+    }
+
+    @media (max-width: 1100px) {
+      .nav-inner {
+        align-items: flex-start;
+        flex-direction: column;
+        padding: 10px 0;
+      }
+
+      .nav-links {
+        width: 100%;
+        justify-content: flex-start;
+        overflow-x: auto;
+        padding-bottom: 2px;
+      }
+    }
+
+    @media (max-width: 850px) {
+    }
+
+    @media (max-width: 620px) {
+      body {
+        font-size: 15px;
+      }
+
+      .brand-name {
+        white-space: normal;
+      }
+
+      .nav-visual-link {
+        gap: 3px;
+        padding-inline: 6px;
+      }
+
+      .nav-action-label {
+        font-size: .78rem;
+      }
+
+      .nav-icon {
+        width: 42px;
+        height: 35px;
+      }
+
+      .banner-strip {
+        height: 96px;
+      }
+
+      .role-body {
+        margin-left: 0;
+      }
+
+      .role {
+        padding-left: 18px;
+      }
+
+      .lead {
+        padding-left: 18px;
+      }
+
+      .skill-group {
+        padding-left: 18px;
+      }
+
+    }
+
+    @media print {
+      .site-nav,
+      .banner-strip,
+      script {
+        display: none;
+      }
+
+      body {
+        color: #111;
+        background: #fff;
+        font-size: 11pt;
+      }
+
+      .cv-main {
+        padding: 0;
+      }
+
+      .wrap {
+        width: auto;
+      }
+
+      .cv-section h1,
+      .cv-section h2 {
+        font-size: 22pt;
+      }
+
+      .cv-section,
+      .role {
+        display: block;
+      }
+
+      .section-frame {
+        padding: 0;
+        border: 0;
+        box-shadow: none;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="site-nav">
+    <nav class="nav-inner" aria-label="CV navigation">
+      <a class="brand-name" href="#top" data-scroll-top aria-label="Back to top">
+        <strong>Dean Rabisy</strong>
+        <span>CV</span>
+      </a>
+      <div class="nav-links">
+        <a class="nav-visual-link" href="https://deanrabisy.github.io/portfolio/" aria-label="Open portfolio">
+          <span class="nav-action-label">Portfolio</span>
+          <span class="nav-icon" aria-hidden="true">
+            <img class="icon-off" src="assets/cv-nav-live-style-alpha/portfolio-off.png" alt="">
+            <img class="icon-on" src="assets/cv-nav-live-style-alpha/portfolio-on.png" alt="">
+          </span>
+        </a>
+        <a class="nav-visual-link" href="https://www.linkedin.com/in/deanrabisy" aria-label="Open LinkedIn profile">
+          <span class="nav-action-label">LinkedIn</span>
+          <span class="nav-icon" aria-hidden="true">
+            <img class="icon-off" src="assets/cv-nav-live-style-alpha/linkedin-off.png" alt="">
+            <img class="icon-on" src="assets/cv-nav-live-style-alpha/linkedin-on.png" alt="">
+          </span>
+        </a>
+        <span class="nav-contact-group">
+          <a class="nav-contact" href="mailto:adaptive.dean@gmail.com" aria-label="Email Dean at adaptive.dean@gmail.com">
+            <span>adaptive.dean@gmail.com</span>
+            <span class="mail-icon" aria-hidden="true">
+              <img class="mail-closed" src="assets/email-envelope-closed.png" alt="">
+              <img class="mail-open" src="assets/email-letter.png" alt="">
+            </span>
+          </a>
+          <button class="copy-email copy-action" type="button" data-copy="adaptive.dean@gmail.com" data-copy-default="Copy adaptive.dean@gmail.com" data-copy-success="Email address copied" data-copy-failure="Could not copy email" aria-label="Copy email address adaptive.dean@gmail.com">
+            <svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="9" y="9" width="11" height="11" rx="2"></rect>
+              <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+            </svg>
+            <span class="copy-email-note" aria-hidden="true">Copy adaptive.dean@gmail.com</span>
+          </button>
+        </span>
+        <span class="nav-contact-group nav-phone-group">
+          <a class="nav-visual-link nav-phone-link" href="tel:+972523604334" aria-label="Call Dean at +972 523604334">
+            <span class="nav-action-label">(+972) 523604334</span>
+            <span class="nav-icon" aria-hidden="true">
+              <img class="icon-off" src="assets/cv-nav-live-style-alpha/phone-off.png" alt="">
+              <img class="icon-on" src="assets/cv-nav-live-style-alpha/phone-on.png" alt="">
+            </span>
+          </a>
+          <button class="copy-phone copy-action" type="button" data-copy="+972523604334" data-copy-default="Copy phone number" data-copy-success="Phone number copied" data-copy-failure="Could not copy phone" aria-label="Copy phone number +972 523604334">
+            <svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="9" y="9" width="11" height="11" rx="2"></rect>
+              <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+            </svg>
+            <span class="copy-phone-note" aria-hidden="true">Copy phone number</span>
+          </button>
+        </span>
+      </div>
+    </nav>
+  </header>
+
+  <main id="top">
+    <div class="banner-strip" aria-label="Portfolio-style banner">
+      <img src="assets/banner-structured-option-3.png" alt="">
+    </div>
+
+    <div class="cv-main">
+      <section class="wrap cv-section" id="summary" aria-labelledby="summary-title">
+        <h1 id="summary-title">Professional Summary</h1>
+        <div class="section-frame">
+          <p class="lead">Turns observation into practical improvement by combining analytical thinking with an understanding of people. Takes ownership from identifying problems to designing, testing, and refining practical solutions. Creates value in roles where understanding both people and systems is essential, from products and operations to customer-facing teams.</p>
+        </div>
+      </section>
+
+      <section class="wrap cv-section" id="experience" aria-labelledby="experience-title">
+        <h2 id="experience-title">Work Experience</h2>
+        <div class="section-frame timeline">
+          <article class="role">
+            <h3 class="role-title">Learning Designer & English as a Second Language Tutor</h3>
+            <div class="role-body">
+              <p class="role-meta">2020–Present | Israel | Independent/Business Owner</p>
+              <ul>
+                <li>Designed individualized learning programs for ~70 students ages 9–18, using reading, comprehension, and language production assessments to identify learning needs and support independent language use.</li>
+                <li>Supported retention over 3–6 years for many students and families through clear communication, expectation management, and building long-term relationships based on trust.</li>
+                <li>Designed over 10 custom learning systems, including browser-based educational games, through iterative testing, user feedback, and AI-assisted workflows.</li>
+                <li>Owned entire student lifecycle, managing onboarding, goal-setting, scheduling, progress tracking, and ongoing stakeholder communication throughout each engagement.</li>
+              </ul>
+            </div>
+          </article>
+
+          <article class="role">
+            <h3 class="role-title">Academic Researcher</h3>
+            <div class="role-body">
+              <p class="role-meta">2019–2025 | Israel | Ruppin Academic Center & Tel Aviv University</p>
+              <ul>
+                <li>Led and supported research across 7 psychology studies, recruiting 300+ participants, coordinating study operations, and training research assistants to ensure standardized implementation.</li>
+                <li>Produced reliable research findings by maintaining methodological integrity through rigorous documentation, quality standards, statistical analysis, data validation, and publication-quality academic writing. </li>
+                <li>Owned the design and execution of psychology studies testing the impact of targeted interventions, contributing to 2 first-author papers in press and a peer-reviewed publication.</li>
+              </ul>
+            </div>
+          </article>
+
+          <article class="role">
+            <h3 class="role-title">Dive Center and Restaurant Manager & Divemaster</h3>
+            <div class="role-body">
+              <p class="role-meta">2017–2018 | Indonesia | Sanctum Dive Indonesia </p>
+              <ul>
+                <li>Established a new business branch, reaching profitability within six months, while leading a team of 20+ staff and overseeing scheduling, budgeting, and managing daily operations.</li>
+                <li>Supported consistent revenue growth by understanding customer needs, managing expectations, and recommending appropriate services, becoming the top-performing walk-in sales representative.</li>
+                <li>Maintained incident-free operations and positive customer referrals by establishing procedures and ensuring safety and service quality while leading groups in high-risk conditions and making real-time decisions.</li>
+              </ul>
+            </div>
+          </article>
+
+          <article class="role">
+            <h3 class="role-title">Foreign Relations Liaison NCO (Staff Sergeant)</h3>
+            <div class="role-body">
+              <p class="role-meta">2009–2012 | Israel | Israel Defence Forces  </p>
+              <ul>
+                <li>Ensured accurate information flow across hundreds of operations, including foreign military flights, medical evacuations, and senior-level liaison, by coordinating military, civilian, and international stakeholders.</li>
+              </ul>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section class="wrap cv-section" id="education" aria-labelledby="education-title">
+        <h2 id="education-title">Education</h2>
+        <div class="section-frame">
+          <div class="education-list">
+            <p class="education-line"><strong>M.A. Psychology (Research Track)</strong> — Tel Aviv University, graduated with highest honours, 2021–2024</p>
+            <p class="education-line"><strong>B.A. Behavioral Sciences (Psychology)</strong> — Ruppin Academic Center, graduated with honours, 2018–2021</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="wrap cv-section" id="skills" aria-labelledby="skills-title">
+        <h2 id="skills-title">Skills</h2>
+        <div class="section-frame skill-groups">
+          <div class="skill-group">
+            <h3 class="skill-title">Core Skills</h3>
+            <p class="skill-line">Research & Analysis <span class="skill-separator">•</span> Problem Solving <span class="skill-separator">•</span> Stakeholder Communication <span class="skill-separator">•</span> Relationship Management <span class="skill-separator">•</span> Process Design <span class="skill-separator">•</span> Learning Design <span class="skill-separator">•</span> Data Validation <span class="skill-separator">•</span> Training & Onboarding</p>
+          </div>
+          <div class="skill-group">
+            <h3 class="skill-title">Tools</h3>
+            <p class="skill-line">MS Office <span class="skill-separator">•</span> Codex <span class="skill-separator">•</span> Claude Code <span class="skill-separator">•</span> Notion <span class="skill-separator">•</span> SPSS <span class="skill-separator">•</span> JASP <span class="skill-separator">•</span> R <span class="skill-separator">•</span> Qualtrics <span class="skill-separator">•</span> Canva <span class="skill-separator">•</span> Cursor <span class="skill-separator">•</span> Python (Basic)</p>
+          </div>
+          <div class="skill-group">
+            <h3 class="skill-title">Languages</h3>
+            <p class="skill-line">English (Native) <span class="skill-separator">•</span> Hebrew (Native) <span class="skill-separator">•</span> German (Proficient)</p>
+          </div>
+        </div>
+      </section>
+    </div>
+  </main>
+  <script>
+    const copyButtons = document.querySelectorAll(".copy-action");
+
+    function copyTextFallback(text) {
+      const field = document.createElement("textarea");
+      field.value = text;
+      field.setAttribute("readonly", "");
+      field.style.position = "fixed";
+      field.style.top = "-999px";
+      document.body.appendChild(field);
+      field.select();
+      let copied = false;
+      try {
+        copied = document.execCommand("copy");
+      } catch (error) {
+        copied = false;
+      }
+      document.body.removeChild(field);
+      return copied;
+    }
+
+    async function handleCopyAction(event) {
+      const button = event.currentTarget;
+      const text = button.dataset.copy;
+      let copied = false;
+      if (navigator.clipboard && window.isSecureContext) {
+        try {
+          await navigator.clipboard.writeText(text);
+          copied = true;
+        } catch (error) {
+          copied = false;
+        }
+      }
+      if (!copied) copied = copyTextFallback(text);
+
+      const note = button.querySelector(".copy-email-note, .copy-phone-note");
+      if (note) note.textContent = copied ? button.dataset.copySuccess : button.dataset.copyFailure;
+      button.classList.add("copied");
+      window.clearTimeout(button.hideTimer);
+      button.hideTimer = window.setTimeout(() => {
+        button.classList.remove("copied");
+        if (note) note.textContent = button.dataset.copyDefault;
+      }, 1800);
+    }
+
+    copyButtons.forEach((button) => {
+      button.addEventListener("click", handleCopyAction);
+    });
+
+    const topLink = document.querySelector("[data-scroll-top]");
+    if (topLink) {
+      topLink.addEventListener("click", (event) => {
+        event.preventDefault();
+        window.scrollTo({ top: 0, behavior: "smooth" });
+      });
+    }
+  </script>
+</body>
+</html>
