@@ -3,6 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light">
   <title>Dean Rabisy | CV</title>
   <meta name="description" content="CV of Dean Rabisy: learning design, research, operations, and product-minded problem solving.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -16,6 +17,7 @@
   <link rel="preload" as="image" href="assets/email-letter.png">
   <style>
     :root {
+      color-scheme: light;
       --font-body: Aptos, "Aptos Display", ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
       --font-flow: "Nunito Sans", Aptos, "Aptos Display", ui-sans-serif, system-ui, sans-serif;
       --ink: #172224;
@@ -32,6 +34,7 @@
       --radius: 8px;
       --content-indent: clamp(22px, 3vw, 34px);
       --bullet-indent: 1.7rem;
+      --sticky-header-height: 70px;
     }
 
     * {
@@ -40,6 +43,8 @@
 
     html {
       scroll-behavior: smooth;
+      scroll-padding-top: calc(var(--sticky-header-height) + clamp(104px, 13vw, 146px));
+      background: var(--paper);
     }
 
     body {
@@ -48,6 +53,10 @@
       background: var(--paper);
       font: 16px/1.58 var(--font-body);
       text-rendering: optimizeLegibility;
+    }
+
+    button {
+      color-scheme: light;
     }
 
     a {
@@ -124,6 +133,10 @@
       color: var(--muted);
       font-size: .9rem;
       flex: 0 0 auto;
+    }
+
+    .nav-links::-webkit-scrollbar {
+      display: none;
     }
 
     .nav-links a {
@@ -390,7 +403,7 @@
 
     .banner-strip {
       position: sticky;
-      top: 70px;
+      top: var(--sticky-header-height);
       z-index: 20;
       height: clamp(86px, 13vw, 128px);
       overflow: hidden;
@@ -414,7 +427,7 @@
 
     .cv-section {
       display: block;
-      scroll-margin-top: 92px;
+      scroll-margin-top: calc(var(--sticky-header-height) + clamp(104px, 13vw, 146px));
     }
 
     .cv-section + .cv-section {
@@ -612,10 +625,16 @@
     }
 
     @media (max-width: 1100px) {
+      :root {
+        --sticky-header-height: 124px;
+      }
+
       .nav-inner {
         align-items: flex-start;
         flex-direction: column;
-        padding: 10px 0;
+        gap: 8px;
+        min-height: var(--sticky-header-height);
+        padding: 10px 0 8px;
       }
 
       .nav-links {
@@ -623,19 +642,53 @@
         justify-content: flex-start;
         overflow-x: auto;
         padding-bottom: 2px;
+        scrollbar-width: none;
+        -webkit-overflow-scrolling: touch;
       }
     }
 
     @media (max-width: 850px) {
+      :root {
+        --content-indent: 20px;
+      }
+
+      .wrap {
+        width: min(var(--max), calc(100% - 32px));
+      }
     }
 
     @media (max-width: 620px) {
+      :root {
+        --sticky-header-height: 112px;
+        --content-indent: 16px;
+        --bullet-indent: 1.25rem;
+      }
+
       body {
         font-size: 15px;
       }
 
+      .nav-inner {
+        width: calc(100% - 22px);
+        min-height: var(--sticky-header-height);
+        gap: 6px;
+        padding: 8px 0 7px;
+      }
+
       .brand-name {
         white-space: normal;
+      }
+
+      .brand-name strong {
+        font-size: 1.16rem;
+      }
+
+      .brand-name span {
+        font-size: .84rem;
+      }
+
+      .nav-links {
+        gap: 3px;
       }
 
       .nav-visual-link {
@@ -643,17 +696,42 @@
         padding-inline: 6px;
       }
 
-      .nav-action-label {
+      .nav-action-label,
+      .nav-contact > span:first-child {
         font-size: .78rem;
       }
 
-      .nav-icon {
+      .nav-icon,
+      .nav-contact .mail-icon {
         width: 42px;
         height: 35px;
       }
 
+      .copy-email,
+      .copy-phone {
+        right: 0;
+        bottom: 1px;
+        width: 19px;
+        height: 19px;
+      }
+
+      .copy-email svg,
+      .copy-phone svg {
+        width: 12px;
+        height: 12px;
+      }
+
       .banner-strip {
-        height: 96px;
+        height: 82px;
+      }
+
+      .cv-main {
+        padding-top: 18px;
+      }
+
+      .cv-section h1,
+      .cv-section h2 {
+        font-size: 1.36rem;
       }
 
       .role-body {
@@ -661,17 +739,69 @@
       }
 
       .role {
-        padding-left: 18px;
+        padding-left: var(--content-indent);
       }
 
       .lead {
-        padding-left: 18px;
+        padding-left: var(--content-indent);
+      }
+
+      .role-title,
+      .role-meta,
+      .role-body ul,
+      .lead,
+      .education-line,
+      .skill-groups {
+        font-size: 1rem;
+      }
+
+      .role-title,
+      .skill-title {
+        font-size: 1.12rem;
+      }
+
+      .role-body ul {
+        padding-left: var(--bullet-indent);
+      }
+
+      .education-line {
+        padding-left: var(--content-indent);
       }
 
       .skill-group {
-        padding-left: 18px;
+        padding-left: var(--content-indent);
       }
 
+      .skill-line {
+        padding-left: var(--bullet-indent);
+      }
+    }
+
+    @media (prefers-color-scheme: dark) {
+      :root {
+        color-scheme: light;
+      }
+
+      html,
+      body {
+        color: var(--ink);
+        background: var(--paper);
+      }
+
+      .site-nav {
+        background: rgba(247, 251, 250, .92);
+      }
+
+      .banner-strip {
+        background: var(--wash);
+      }
+
+      .nav-icon,
+      .mail-icon,
+      .copy-email,
+      .copy-phone {
+        background: rgba(255, 255, 255, .72);
+      }
     }
 
     @media print {
