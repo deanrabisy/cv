@@ -4,6 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="color-scheme" content="light">
+  <meta name="theme-color" content="#f7fbfa">
   <title>Dean Rabisy | CV</title>
   <meta name="description" content="CV of Dean Rabisy: learning design, research, operations, and product-minded problem solving.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -46,6 +47,7 @@
       scroll-padding-top: calc(var(--sticky-header-height) + clamp(104px, 13vw, 146px));
       background: var(--paper);
       color-scheme: only light;
+      forced-color-adjust: none;
     }
 
     body {
@@ -126,8 +128,8 @@
       vertical-align: .18em;
     }
 
-    .contact-menu-toggle {
-      display: none;
+    .header-contact-link {
+      display: inline-flex;
       align-items: center;
       justify-content: center;
       min-height: 36px;
@@ -138,13 +140,12 @@
       background: rgba(255, 255, 255, .76);
       box-shadow: 0 8px 18px rgba(23, 34, 36, .12);
       font: 400 .86rem/1 var(--font-body);
-      cursor: pointer;
+      text-decoration: none;
       transition: transform .18s ease, background .18s ease, box-shadow .18s ease;
     }
 
-    .contact-menu-toggle:hover,
-    .contact-menu-toggle:focus-visible,
-    .contact-menu-toggle[aria-expanded="true"] {
+    .header-contact-link:hover,
+    .header-contact-link:focus-visible {
       outline: none;
       transform: translateY(-1px);
       background: rgba(255, 255, 255, .9);
@@ -152,22 +153,18 @@
     }
 
     .nav-links {
-      display: flex;
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
       align-items: center;
-      justify-content: flex-end;
-      gap: 8px;
+      gap: 10px 14px;
       min-width: 0;
       color: var(--muted);
       font-size: .9rem;
-      flex: 0 0 auto;
-    }
-
-    .nav-links::-webkit-scrollbar {
-      display: none;
+      scroll-margin-top: calc(var(--sticky-header-height) + clamp(104px, 13vw, 146px));
     }
 
     .nav-links a {
-      padding: 7px 11px;
+      padding: 7px 10px 7px 14px;
       border-radius: 999px;
       text-decoration: none;
     }
@@ -182,9 +179,12 @@
     .nav-visual-link {
       display: inline-flex;
       align-items: center;
-      gap: 6px;
-      padding: 2px 7px 2px 10px;
+      justify-content: space-between;
+      gap: 14px;
+      min-height: 58px;
       color: var(--ink);
+      border: 1px solid rgba(36, 94, 104, .14);
+      background: rgba(255, 255, 255, .58);
       text-decoration: none;
     }
 
@@ -321,9 +321,15 @@
     .nav-contact {
       display: inline-flex;
       align-items: center;
-      gap: 6px;
-      padding: 2px 0 2px 9px;
+      justify-content: space-between;
+      gap: 14px;
+      width: 100%;
+      min-height: 58px;
+      padding: 7px 10px 7px 14px;
+      border: 1px solid rgba(36, 94, 104, .14);
+      border-radius: 999px;
       color: var(--ink);
+      background: rgba(255, 255, 255, .58);
       text-decoration: none;
     }
 
@@ -340,8 +346,8 @@
       position: relative;
       display: inline-flex;
       align-items: center;
-      margin-left: 4px;
-      padding-right: 4px;
+      margin-left: 0;
+      padding-right: 24px;
     }
 
     .copy-email,
@@ -450,6 +456,11 @@
 
     .cv-main {
       padding: clamp(20px, 3.2vw, 34px) 0 clamp(58px, 8vw, 96px);
+    }
+
+    .contact-actions {
+      margin-bottom: clamp(24px, 3.6vw, 38px);
+      scroll-margin-top: calc(var(--sticky-header-height) + clamp(104px, 13vw, 146px));
     }
 
     .cv-section {
@@ -652,25 +663,8 @@
     }
 
     @media (max-width: 1100px) {
-      :root {
-        --sticky-header-height: 124px;
-      }
-
-      .nav-inner {
-        align-items: flex-start;
-        flex-direction: column;
-        gap: 8px;
-        min-height: var(--sticky-header-height);
-        padding: 10px 0 8px;
-      }
-
       .nav-links {
-        width: 100%;
-        justify-content: flex-start;
-        overflow-x: auto;
-        padding-bottom: 2px;
-        scrollbar-width: none;
-        -webkit-overflow-scrolling: touch;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
       }
     }
 
@@ -698,8 +692,6 @@
       .nav-inner {
         width: calc(100% - 22px);
         min-height: var(--sticky-header-height);
-        align-items: center;
-        flex-direction: row;
         gap: 6px;
         padding: 7px 0;
       }
@@ -716,36 +708,9 @@
         font-size: .84rem;
       }
 
-      .contact-menu-toggle {
-        display: inline-flex;
-        flex: 0 0 auto;
-      }
-
       .nav-links {
-        position: absolute;
-        top: calc(100% + 8px);
-        right: 0;
-        display: none;
-        width: min(326px, calc(100vw - 22px));
-        max-height: calc(100vh - var(--sticky-header-height) - 24px);
+        grid-template-columns: 1fr;
         gap: 8px;
-        padding: 10px;
-        overflow-y: auto;
-        border: 1px solid rgba(36, 94, 104, .16);
-        border-radius: 16px;
-        background: rgba(247, 251, 250, .97);
-        box-shadow: 0 22px 46px rgba(23, 34, 36, .18);
-        opacity: 0;
-        pointer-events: none;
-        transform: translateY(-6px);
-        transition: opacity .18s ease, transform .18s ease;
-      }
-
-      .site-nav.contact-menu-open .nav-links {
-        display: grid;
-        opacity: 1;
-        pointer-events: auto;
-        transform: translateY(0);
       }
 
       .nav-visual-link {
@@ -870,10 +835,9 @@
         background: rgba(247, 251, 250, .92);
       }
 
-      .contact-menu-toggle,
+      .header-contact-link,
       .nav-links {
         color: var(--ink);
-        background: rgba(247, 251, 250, .97);
       }
 
       .banner-strip {
@@ -934,10 +898,18 @@
         <strong>Dean Rabisy</strong>
         <span>CV</span>
       </a>
-      <button class="contact-menu-toggle" type="button" aria-expanded="false" aria-controls="contact-menu">
-        Contact
-      </button>
-      <div class="nav-links" id="contact-menu">
+      <a class="header-contact-link" href="#contact-actions">Contact</a>
+    </nav>
+  </header>
+
+  <main id="top">
+    <div class="banner-strip" aria-label="Portfolio-style banner">
+      <img src="assets/banner-structured-option-3.png" alt="">
+    </div>
+
+    <div class="cv-main">
+      <section class="wrap contact-actions" id="contact-actions" aria-label="Contact actions">
+        <div class="nav-links">
         <a class="nav-visual-link" href="https://deanrabisy.github.io/portfolio/" aria-label="Open portfolio">
           <span class="nav-action-label">Portfolio</span>
           <span class="nav-icon" aria-hidden="true">
@@ -985,15 +957,7 @@
           </button>
         </span>
       </div>
-    </nav>
-  </header>
-
-  <main id="top">
-    <div class="banner-strip" aria-label="Portfolio-style banner">
-      <img src="assets/banner-structured-option-3.png" alt="">
-    </div>
-
-    <div class="cv-main">
+      </section>
       <section class="wrap cv-section" id="summary" aria-labelledby="summary-title">
         <h1 id="summary-title">Professional Summary</h1>
         <div class="section-frame">
@@ -1083,40 +1047,7 @@
     </div>
   </main>
   <script>
-    const siteNav = document.querySelector(".site-nav");
-    const contactMenuToggle = document.querySelector(".contact-menu-toggle");
-    const contactMenu = document.querySelector("#contact-menu");
     const copyButtons = document.querySelectorAll(".copy-action");
-
-    function setContactMenu(open) {
-      if (!siteNav || !contactMenuToggle) return;
-      siteNav.classList.toggle("contact-menu-open", open);
-      contactMenuToggle.setAttribute("aria-expanded", String(open));
-    }
-
-    if (contactMenuToggle && contactMenu) {
-      contactMenuToggle.addEventListener("click", () => {
-        const isOpen = contactMenuToggle.getAttribute("aria-expanded") === "true";
-        setContactMenu(!isOpen);
-      });
-
-      document.addEventListener("click", (event) => {
-        if (!siteNav || !siteNav.contains(event.target)) {
-          setContactMenu(false);
-        }
-      });
-
-      document.addEventListener("keydown", (event) => {
-        if (event.key === "Escape") {
-          setContactMenu(false);
-          contactMenuToggle.focus();
-        }
-      });
-
-      contactMenu.querySelectorAll("a").forEach((link) => {
-        link.addEventListener("click", () => setContactMenu(false));
-      });
-    }
 
     function copyTextFallback(text) {
       const field = document.createElement("textarea");
