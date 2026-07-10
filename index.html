@@ -728,7 +728,7 @@
 
     @media (max-width: 620px) {
       :root {
-        --sticky-header-height: 118px;
+        --sticky-header-height: 62px;
         --content-indent: 16px;
         --bullet-indent: 1.25rem;
       }
@@ -740,22 +740,31 @@
       .nav-inner {
         width: calc(100% - 22px);
         min-height: var(--sticky-header-height);
-        align-items: flex-start;
-        flex-direction: column;
-        gap: 4px;
-        padding: 7px 0 6px;
+        align-items: center;
+        flex-direction: row;
+        justify-content: space-between;
+        gap: 6px;
+        padding: 6px 0;
       }
 
       .brand-name {
-        white-space: normal;
+        flex: 0 0 auto;
+        gap: 5px;
+        white-space: nowrap;
       }
 
       .brand-name strong {
-        font-size: 1.16rem;
+        font-size: .96rem;
       }
 
       .brand-name span {
-        font-size: .84rem;
+        font-size: .72rem;
+      }
+
+      .brand-name strong::after {
+        width: 3px;
+        height: 3px;
+        margin-left: 5px;
       }
 
       .header-contact-link {
@@ -764,9 +773,10 @@
 
       .site-nav .nav-links {
         display: grid;
-        grid-template-columns: repeat(4, minmax(0, 1fr));
-        width: 100%;
-        gap: 4px;
+        grid-template-columns: repeat(4, 34px);
+        width: auto;
+        flex: 0 0 auto;
+        gap: 3px;
         padding-bottom: 0;
         overflow: visible;
       }
@@ -803,7 +813,7 @@
 
       .nav-action-label,
       .nav-contact > span:first-child {
-        font-size: .66rem;
+        font-size: .52rem;
         line-height: 1.2;
         white-space: normal;
       }
@@ -823,14 +833,14 @@
 
       .site-nav [data-mobile-label]::after {
         content: attr(data-mobile-label);
-        font-size: .66rem;
+        font-size: .52rem;
       }
 
       .nav-icon,
       .nav-contact .mail-icon {
         order: 1;
-        width: 36px;
-        height: 30px;
+        width: 30px;
+        height: 25px;
       }
 
       .copy-email,
@@ -905,6 +915,33 @@
 
       .skill-line {
         padding-left: var(--bullet-indent);
+      }
+    }
+
+    @media (max-width: 370px) {
+      .brand-name strong {
+        font-size: .88rem;
+      }
+
+      .brand-name span {
+        font-size: .66rem;
+      }
+
+      .site-nav .nav-links {
+        grid-template-columns: repeat(4, 31px);
+        gap: 2px;
+      }
+
+      .nav-icon,
+      .nav-contact .mail-icon {
+        width: 27px;
+        height: 23px;
+      }
+
+      .nav-action-label,
+      .nav-contact > span:first-child,
+      .site-nav [data-mobile-label]::after {
+        font-size: .48rem;
       }
     }
 
