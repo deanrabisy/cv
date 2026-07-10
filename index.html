@@ -443,10 +443,24 @@
       height: clamp(86px, 13vw, 128px);
       overflow: visible;
       background: transparent;
-      filter: drop-shadow(0 9px 13px rgba(23, 34, 36, .18));
+    }
+
+    .banner-strip::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      z-index: 0;
+      background: rgba(23, 34, 36, .18);
+      clip-path: ellipse(84% 72% at 50% 0);
+      filter: blur(10px);
+      opacity: .72;
+      transform: translateY(9px);
+      pointer-events: none;
     }
 
     .banner-image-shell {
+      position: relative;
+      z-index: 1;
       height: 100%;
       overflow: hidden;
       background: var(--wash);
