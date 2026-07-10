@@ -129,7 +129,7 @@
     }
 
     .header-contact-link {
-      display: inline-flex;
+      display: none;
       align-items: center;
       justify-content: center;
       min-height: 36px;
@@ -153,18 +153,22 @@
     }
 
     .nav-links {
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
+      display: flex;
       align-items: center;
-      gap: 10px 14px;
+      justify-content: flex-end;
+      gap: 8px;
       min-width: 0;
       color: var(--muted);
       font-size: .9rem;
-      scroll-margin-top: calc(var(--sticky-header-height) + clamp(104px, 13vw, 146px));
+      flex: 0 0 auto;
+    }
+
+    .nav-links::-webkit-scrollbar {
+      display: none;
     }
 
     .nav-links a {
-      padding: 7px 10px 7px 14px;
+      padding: 7px 11px;
       border-radius: 999px;
       text-decoration: none;
     }
@@ -179,12 +183,9 @@
     .nav-visual-link {
       display: inline-flex;
       align-items: center;
-      justify-content: space-between;
-      gap: 14px;
-      min-height: 58px;
+      gap: 6px;
+      padding: 2px 7px 2px 10px;
       color: var(--ink);
-      border: 1px solid rgba(36, 94, 104, .14);
-      background: rgba(255, 255, 255, .58);
       text-decoration: none;
     }
 
@@ -321,15 +322,9 @@
     .nav-contact {
       display: inline-flex;
       align-items: center;
-      justify-content: space-between;
-      gap: 14px;
-      width: 100%;
-      min-height: 58px;
-      padding: 7px 10px 7px 14px;
-      border: 1px solid rgba(36, 94, 104, .14);
-      border-radius: 999px;
+      gap: 6px;
+      padding: 2px 0 2px 9px;
       color: var(--ink);
-      background: rgba(255, 255, 255, .58);
       text-decoration: none;
     }
 
@@ -346,8 +341,8 @@
       position: relative;
       display: inline-flex;
       align-items: center;
-      margin-left: 0;
-      padding-right: 24px;
+      margin-left: 4px;
+      padding-right: 4px;
     }
 
     .copy-email,
@@ -475,8 +470,41 @@
     }
 
     .contact-actions {
+      display: none;
       margin-bottom: clamp(24px, 3.6vw, 38px);
       scroll-margin-top: calc(var(--sticky-header-height) + clamp(104px, 13vw, 146px));
+    }
+
+    .contact-actions .nav-links {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 10px 14px;
+      scroll-margin-top: calc(var(--sticky-header-height) + clamp(104px, 13vw, 146px));
+    }
+
+    .contact-actions .nav-links a {
+      padding: 7px 10px 7px 14px;
+    }
+
+    .contact-actions .nav-visual-link,
+    .contact-actions .nav-contact {
+      justify-content: space-between;
+      gap: 14px;
+      min-height: 58px;
+      border: 1px solid rgba(36, 94, 104, .14);
+      background: rgba(255, 255, 255, .58);
+    }
+
+    .contact-actions .nav-contact {
+      width: 100%;
+      padding: 7px 10px 7px 14px;
+      border-radius: 999px;
+    }
+
+    .contact-actions .nav-contact-group {
+      width: 100%;
+      margin-left: 0;
+      padding-right: 24px;
     }
 
     .cv-section {
@@ -679,7 +707,26 @@
     }
 
     @media (max-width: 1100px) {
+      :root {
+        --sticky-header-height: 124px;
+      }
+
+      .nav-inner {
+        align-items: flex-start;
+        flex-direction: column;
+        padding: 10px 0;
+      }
+
       .nav-links {
+        width: 100%;
+        justify-content: flex-start;
+        overflow-x: auto;
+        padding-bottom: 2px;
+        scrollbar-width: none;
+        -webkit-overflow-scrolling: touch;
+      }
+
+      .contact-actions .nav-links {
         grid-template-columns: repeat(2, minmax(0, 1fr));
       }
     }
@@ -708,6 +755,8 @@
       .nav-inner {
         width: calc(100% - 22px);
         min-height: var(--sticky-header-height);
+        align-items: center;
+        flex-direction: row;
         gap: 6px;
         padding: 7px 0;
       }
@@ -724,32 +773,48 @@
         font-size: .84rem;
       }
 
-      .nav-links {
-        grid-template-columns: 1fr;
+      .header-contact-link {
+        display: inline-flex;
+        flex: 0 0 auto;
+      }
+
+      .site-nav .nav-links {
+        display: none;
+      }
+
+      .contact-actions {
+        display: block;
+      }
+
+      .contact-actions .nav-links {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
         gap: 8px;
+        overflow: visible;
+        padding-bottom: 0;
       }
 
-      .nav-visual-link {
+      .contact-actions .nav-visual-link {
         width: 100%;
         justify-content: space-between;
         gap: 10px;
         padding: 4px 4px 4px 12px;
       }
 
-      .nav-contact {
+      .contact-actions .nav-contact {
         width: 100%;
         justify-content: space-between;
         gap: 10px;
         padding: 4px 4px 4px 12px;
       }
 
-      .nav-contact-group {
+      .contact-actions .nav-contact-group {
         width: 100%;
         margin-left: 0;
         padding-right: 18px;
       }
 
-      .nav-phone-link {
+      .contact-actions .nav-phone-link {
         padding-left: 12px;
       }
 
@@ -915,6 +980,54 @@
         <span>CV</span>
       </a>
       <a class="header-contact-link" href="#contact-actions">Contact</a>
+      <div class="nav-links">
+        <a class="nav-visual-link" href="https://deanrabisy.github.io/portfolio/" aria-label="Open portfolio">
+          <span class="nav-action-label">Portfolio</span>
+          <span class="nav-icon" aria-hidden="true">
+            <img class="icon-off" src="assets/cv-nav-live-style-alpha/portfolio-off.png" alt="">
+            <img class="icon-on" src="assets/cv-nav-live-style-alpha/portfolio-on.png" alt="">
+          </span>
+        </a>
+        <a class="nav-visual-link" href="https://www.linkedin.com/in/deanrabisy" aria-label="Open LinkedIn profile">
+          <span class="nav-action-label">LinkedIn</span>
+          <span class="nav-icon" aria-hidden="true">
+            <img class="icon-off" src="assets/cv-nav-live-style-alpha/linkedin-off.png" alt="">
+            <img class="icon-on" src="assets/cv-nav-live-style-alpha/linkedin-on.png" alt="">
+          </span>
+        </a>
+        <span class="nav-contact-group">
+          <a class="nav-contact" href="mailto:adaptive.dean@gmail.com" aria-label="Email Dean at adaptive.dean@gmail.com">
+            <span>adaptive.dean@gmail.com</span>
+            <span class="mail-icon" aria-hidden="true">
+              <img class="mail-closed" src="assets/email-envelope-closed.png" alt="">
+              <img class="mail-open" src="assets/email-letter.png" alt="">
+            </span>
+          </a>
+          <button class="copy-email copy-action" type="button" data-copy="adaptive.dean@gmail.com" data-copy-default="Copy adaptive.dean@gmail.com" data-copy-success="Email address copied" data-copy-failure="Could not copy email" aria-label="Copy email address adaptive.dean@gmail.com">
+            <svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="9" y="9" width="11" height="11" rx="2"></rect>
+              <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+            </svg>
+            <span class="copy-email-note" aria-hidden="true">Copy adaptive.dean@gmail.com</span>
+          </button>
+        </span>
+        <span class="nav-contact-group nav-phone-group">
+          <a class="nav-visual-link nav-phone-link" href="tel:+972523604334" aria-label="Call Dean at +972 523604334">
+            <span class="nav-action-label">(+972) 523604334</span>
+            <span class="nav-icon" aria-hidden="true">
+              <img class="icon-off" src="assets/cv-nav-live-style-alpha/phone-off.png" alt="">
+              <img class="icon-on" src="assets/cv-nav-live-style-alpha/phone-on.png" alt="">
+            </span>
+          </a>
+          <button class="copy-phone copy-action" type="button" data-copy="+972523604334" data-copy-default="Copy phone number" data-copy-success="Phone number copied" data-copy-failure="Could not copy phone" aria-label="Copy phone number +972 523604334">
+            <svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="9" y="9" width="11" height="11" rx="2"></rect>
+              <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+            </svg>
+            <span class="copy-phone-note" aria-hidden="true">Copy phone number</span>
+          </button>
+        </span>
+      </div>
     </nav>
   </header>
 
