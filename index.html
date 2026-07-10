@@ -434,14 +434,20 @@
       top: var(--sticky-header-height);
       z-index: 20;
       height: clamp(86px, 13vw, 128px);
+      overflow: visible;
+      background: transparent;
+      filter: drop-shadow(0 9px 13px rgba(23, 34, 36, .18));
+    }
+
+    .banner-image-shell {
+      height: 100%;
       overflow: hidden;
       background: var(--wash);
       border-bottom: 1px solid rgba(36, 94, 104, .08);
       clip-path: ellipse(84% 72% at 50% 0);
-      filter: drop-shadow(0 9px 13px rgba(23, 34, 36, .18));
     }
 
-    .banner-strip img {
+    .banner-image-shell img {
       height: 100%;
       object-fit: cover;
       object-position: center 35%;
@@ -1080,7 +1086,9 @@
 
   <main id="top">
     <div class="banner-strip" aria-label="Portfolio-style banner">
-      <img src="assets/banner-structured-option-3.png" alt="">
+      <div class="banner-image-shell">
+        <img src="assets/banner-structured-option-3.png" alt="">
+      </div>
     </div>
 
     <div class="cv-main">
