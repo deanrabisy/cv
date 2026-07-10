@@ -237,30 +237,35 @@
     }
 
     .nav-visual-link:hover .icon-off,
-    .nav-visual-link:focus-visible .icon-off {
+    .nav-visual-link:focus-visible .icon-off,
+    .nav-visual-link.interaction-active .icon-off {
       opacity: 0;
       transform: translateY(0) scale(.9);
     }
 
     .nav-phone-link:hover .icon-off,
-    .nav-phone-link:focus-visible .icon-off {
+    .nav-phone-link:focus-visible .icon-off,
+    .nav-phone-link.interaction-active .icon-off {
       transform: translateY(0) scale(.9) scaleX(-1);
     }
 
     .nav-visual-link:hover .icon-on,
-    .nav-visual-link:focus-visible .icon-on {
+    .nav-visual-link:focus-visible .icon-on,
+    .nav-visual-link.interaction-active .icon-on {
       opacity: 1;
       transform: translateY(-1px) scale(.99);
       filter: drop-shadow(0 4px 8px rgba(36, 94, 104, .14));
     }
 
     .nav-phone-link:hover .icon-on,
-    .nav-phone-link:focus-visible .icon-on {
+    .nav-phone-link:focus-visible .icon-on,
+    .nav-phone-link.interaction-active .icon-on {
       transform: translateY(-1px) scale(.99) scaleX(-1);
     }
 
     .nav-visual-link:hover .nav-icon,
-    .nav-visual-link:focus-visible .nav-icon {
+    .nav-visual-link:focus-visible .nav-icon,
+    .nav-visual-link.interaction-active .nav-icon {
       transform: translateY(-1px);
       filter: drop-shadow(0 10px 13px rgba(23, 34, 36, .2));
     }
@@ -304,7 +309,8 @@
     .nav-contact:hover .mail-closed,
     .nav-contact:focus-visible .mail-closed,
     .nav-contact-group:hover .mail-closed,
-    .nav-contact-group:focus-within .mail-closed {
+    .nav-contact-group:focus-within .mail-closed,
+    .nav-contact-group.interaction-active .mail-closed {
       opacity: 0;
       transform: translateY(0) scale(1);
     }
@@ -314,7 +320,8 @@
     .nav-contact:hover .mail-open,
     .nav-contact:focus-visible .mail-open,
     .nav-contact-group:hover .mail-open,
-    .nav-contact-group:focus-within .mail-open {
+    .nav-contact-group:focus-within .mail-open,
+    .nav-contact-group.interaction-active .mail-open {
       opacity: 1;
       transform: translateY(-2px) scale(1.1) rotate(-3deg);
     }
@@ -954,6 +961,31 @@
       }
     }
 
+    @media (hover: none) {
+      .nav-visual-link:not(.interaction-active):hover .icon-off {
+        opacity: 1;
+      }
+
+      .nav-visual-link:not(.interaction-active):hover .icon-on {
+        opacity: 0;
+      }
+
+      .nav-visual-link:not(.interaction-active):hover .nav-icon {
+        transform: none;
+        filter: drop-shadow(0 7px 9px rgba(23, 34, 36, .16));
+      }
+
+      .nav-contact-group:not(.interaction-active):hover .mail-closed,
+      .nav-contact:not(.interaction-active):hover .mail-closed {
+        opacity: 1;
+      }
+
+      .nav-contact-group:not(.interaction-active):hover .mail-open,
+      .nav-contact:not(.interaction-active):hover .mail-open {
+        opacity: 0;
+      }
+    }
+
     @media (prefers-color-scheme: dark) {
       :root {
         color-scheme: only light;
@@ -1232,6 +1264,23 @@
   </main>
   <script>
     const copyButtons = document.querySelectorAll(".copy-action");
+    const navActionButtons = document.querySelectorAll(".nav-visual-link, .nav-contact");
+
+    function setTemporaryInteraction(element) {
+      if (!element) return;
+      element.classList.add("interaction-active");
+      window.clearTimeout(element.interactionTimer);
+      element.interactionTimer = window.setTimeout(() => {
+        element.classList.remove("interaction-active");
+        if (document.activeElement === element) element.blur();
+      }, 3000);
+    }
+
+    navActionButtons.forEach((action) => {
+      action.addEventListener("click", () => {
+        setTemporaryInteraction(action.closest(".nav-contact-group") || action);
+      });
+    });
 
     function copyTextFallback(text) {
       const field = document.createElement("textarea");
@@ -1253,6 +1302,7 @@
 
     async function handleCopyAction(event) {
       const button = event.currentTarget;
+      setTemporaryInteraction(button.closest(".nav-contact-group"));
       const text = button.dataset.copy;
       let copied = false;
       if (navigator.clipboard && window.isSecureContext) {
@@ -1272,7 +1322,8 @@
       button.hideTimer = window.setTimeout(() => {
         button.classList.remove("copied");
         if (note) note.textContent = button.dataset.copyDefault;
-      }, 1800);
+        if (document.activeElement === button) button.blur();
+      }, 3000);
     }
 
     copyButtons.forEach((button) => {
