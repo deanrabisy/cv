@@ -790,22 +790,27 @@
         display: grid;
         grid-template-columns: repeat(2, minmax(0, 1fr));
         gap: 8px;
+        align-items: stretch;
         overflow: visible;
         padding-bottom: 0;
       }
 
       .contact-actions .nav-visual-link {
         width: 100%;
-        justify-content: space-between;
-        gap: 10px;
-        padding: 4px 4px 4px 12px;
+        aspect-ratio: 1;
+        flex-direction: column;
+        justify-content: center;
+        gap: 6px;
+        padding: 10px;
       }
 
       .contact-actions .nav-contact {
         width: 100%;
-        justify-content: space-between;
-        gap: 10px;
-        padding: 4px 4px 4px 12px;
+        aspect-ratio: 1;
+        flex-direction: column;
+        justify-content: center;
+        gap: 6px;
+        padding: 10px;
       }
 
       .contact-actions .nav-contact-group {
@@ -815,20 +820,36 @@
       }
 
       .contact-actions .nav-phone-link {
-        padding-left: 12px;
+        padding-left: 10px;
       }
 
       .nav-action-label,
       .nav-contact > span:first-child {
-        font-size: .86rem;
+        font-size: .92rem;
         line-height: 1.2;
         white-space: normal;
+      }
+
+      .contact-actions .nav-action-label,
+      .contact-actions .nav-contact > span:first-child {
+        order: 2;
+        color: #245e68;
+        font-family: var(--font-flow);
+        font-weight: 760;
+        text-align: center;
       }
 
       .nav-icon,
       .nav-contact .mail-icon {
         width: 42px;
         height: 35px;
+      }
+
+      .contact-actions .nav-icon,
+      .contact-actions .nav-contact .mail-icon {
+        order: 1;
+        width: clamp(72px, 22vw, 86px);
+        height: clamp(60px, 18vw, 72px);
       }
 
       .copy-email,
@@ -843,6 +864,12 @@
       .copy-phone svg {
         width: 12px;
         height: 12px;
+      }
+
+      .contact-actions .copy-email,
+      .contact-actions .copy-phone {
+        right: 8px;
+        bottom: 8px;
       }
 
       .banner-strip {
@@ -1055,7 +1082,7 @@
         </a>
         <span class="nav-contact-group">
           <a class="nav-contact" href="mailto:adaptive.dean@gmail.com" aria-label="Email Dean at adaptive.dean@gmail.com">
-            <span>adaptive.dean@gmail.com</span>
+            <span>Email</span>
             <span class="mail-icon" aria-hidden="true">
               <img class="mail-closed" src="assets/email-envelope-closed.png" alt="">
               <img class="mail-open" src="assets/email-letter.png" alt="">
@@ -1071,7 +1098,7 @@
         </span>
         <span class="nav-contact-group nav-phone-group">
           <a class="nav-visual-link nav-phone-link" href="tel:+972523604334" aria-label="Call Dean at +972 523604334">
-            <span class="nav-action-label">(+972) 523604334</span>
+            <span class="nav-action-label">Phone</span>
             <span class="nav-icon" aria-hidden="true">
               <img class="icon-off" src="assets/cv-nav-live-style-alpha/phone-off.png" alt="">
               <img class="icon-on" src="assets/cv-nav-live-style-alpha/phone-on.png" alt="">
