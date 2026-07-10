@@ -438,22 +438,7 @@
       background: var(--wash);
       border-bottom: 1px solid rgba(36, 94, 104, .08);
       clip-path: ellipse(84% 72% at 50% 0);
-    }
-
-    .banner-strip::after {
-      content: "";
-      position: absolute;
-      right: 0;
-      bottom: -1px;
-      left: 0;
-      z-index: 2;
-      height: 1px;
-      background:
-        linear-gradient(90deg, rgba(230, 243, 243, .26), rgba(255, 255, 255, .96) 20%, rgba(255, 255, 255, 1) 80%, rgba(230, 243, 243, .26));
-      box-shadow:
-        0 2px 0 rgba(255, 255, 255, .96),
-        0 10px 18px rgba(23, 34, 36, .16);
-      pointer-events: none;
+      filter: drop-shadow(0 9px 13px rgba(23, 34, 36, .18));
     }
 
     .banner-strip img {
@@ -743,7 +728,7 @@
 
     @media (max-width: 620px) {
       :root {
-        --sticky-header-height: 58px;
+        --sticky-header-height: 118px;
         --content-indent: 16px;
         --bullet-indent: 1.25rem;
       }
@@ -755,10 +740,10 @@
       .nav-inner {
         width: calc(100% - 22px);
         min-height: var(--sticky-header-height);
-        align-items: center;
-        flex-direction: row;
-        gap: 6px;
-        padding: 7px 0;
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 4px;
+        padding: 7px 0 6px;
       }
 
       .brand-name {
@@ -774,66 +759,57 @@
       }
 
       .header-contact-link {
-        display: inline-flex;
-        flex: 0 0 auto;
-      }
-
-      .site-nav .nav-links {
         display: none;
       }
 
-      .contact-actions {
-        display: block;
-      }
-
-      .contact-actions .nav-links {
+      .site-nav .nav-links {
         display: grid;
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-        gap: 8px;
-        align-items: stretch;
-        max-width: 260px;
-        margin: 0 auto;
-        overflow: visible;
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        width: 100%;
+        gap: 4px;
         padding-bottom: 0;
+        overflow: visible;
       }
 
+      .contact-actions {
+        display: none;
+      }
+
+      .site-nav .nav-visual-link,
+      .site-nav .nav-contact,
       .contact-actions .nav-visual-link {
         width: 100%;
-        aspect-ratio: 1;
         flex-direction: column;
         justify-content: center;
-        gap: 3px;
-        padding: 7px;
+        gap: 1px;
+        padding: 0;
+        background: transparent;
       }
 
-      .contact-actions .nav-contact {
-        width: 100%;
-        aspect-ratio: 1;
-        flex-direction: column;
-        justify-content: center;
-        gap: 3px;
-        padding: 7px;
+      .site-nav .nav-links a:hover,
+      .site-nav .nav-links a:focus-visible {
+        background: transparent;
       }
 
-      .contact-actions .nav-contact-group {
+      .site-nav .nav-contact-group {
         width: 100%;
         margin-left: 0;
-        padding-right: 18px;
+        padding-right: 0;
       }
 
-      .contact-actions .nav-phone-link {
-        padding-left: 10px;
+      .site-nav .nav-phone-link {
+        padding-left: 0;
       }
 
       .nav-action-label,
       .nav-contact > span:first-child {
-        font-size: .92rem;
+        font-size: .66rem;
         line-height: 1.2;
         white-space: normal;
       }
 
-      .contact-actions .nav-action-label,
-      .contact-actions .nav-contact > span:first-child {
+      .site-nav .nav-action-label,
+      .site-nav .nav-contact > span:first-child {
         order: 2;
         color: #245e68;
         font-family: var(--font-flow);
@@ -841,37 +817,39 @@
         text-align: center;
       }
 
-      .nav-icon,
-      .nav-contact .mail-icon {
-        width: 42px;
-        height: 35px;
+      .site-nav [data-mobile-label] {
+        font-size: 0;
       }
 
-      .contact-actions .nav-icon,
-      .contact-actions .nav-contact .mail-icon {
+      .site-nav [data-mobile-label]::after {
+        content: attr(data-mobile-label);
+        font-size: .66rem;
+      }
+
+      .nav-icon,
+      .nav-contact .mail-icon {
         order: 1;
-        width: clamp(44px, 13vw, 54px);
-        height: clamp(36px, 11vw, 45px);
+        width: 36px;
+        height: 30px;
       }
 
       .copy-email,
       .copy-phone {
-        right: 2px;
-        bottom: 2px;
-        width: 19px;
-        height: 19px;
+        right: calc(50% - 24px);
+        bottom: 19px;
+        width: 15px;
+        height: 15px;
+      }
+
+      .site-nav .copy-email,
+      .site-nav .copy-phone {
+        display: none;
       }
 
       .copy-email svg,
       .copy-phone svg {
-        width: 12px;
-        height: 12px;
-      }
-
-      .contact-actions .copy-email,
-      .contact-actions .copy-phone {
-        right: 8px;
-        bottom: 8px;
+        width: 9px;
+        height: 9px;
       }
 
       .banner-strip {
@@ -1026,7 +1004,7 @@
         </a>
         <span class="nav-contact-group">
           <a class="nav-contact" href="mailto:adaptive.dean@gmail.com" aria-label="Email Dean at adaptive.dean@gmail.com">
-            <span>adaptive.dean@gmail.com</span>
+            <span data-mobile-label="Email">adaptive.dean@gmail.com</span>
             <span class="mail-icon" aria-hidden="true">
               <img class="mail-closed" src="assets/email-envelope-closed.png" alt="">
               <img class="mail-open" src="assets/email-letter.png" alt="">
@@ -1042,7 +1020,7 @@
         </span>
         <span class="nav-contact-group nav-phone-group">
           <a class="nav-visual-link nav-phone-link" href="tel:+972523604334" aria-label="Call Dean at +972 523604334">
-            <span class="nav-action-label">(+972) 523604334</span>
+            <span class="nav-action-label" data-mobile-label="Phone">(+972) 523604334</span>
             <span class="nav-icon" aria-hidden="true">
               <img class="icon-off" src="assets/cv-nav-live-style-alpha/phone-off.png" alt="">
               <img class="icon-on" src="assets/cv-nav-live-style-alpha/phone-on.png" alt="">
