@@ -450,9 +450,7 @@
       position: absolute;
       inset: 0;
       z-index: 0;
-      background: rgba(0, 0, 0, .72);
-      clip-path: ellipse(84% 72% at 50% 0);
-      transform: translateY(2px);
+      display: none;
       pointer-events: none;
     }
 
@@ -464,6 +462,7 @@
       background: var(--paper);
       border-bottom: 0;
       clip-path: ellipse(84% 72% at 50% 0);
+      filter: drop-shadow(0 2px 1px rgba(0, 0, 0, .34)) drop-shadow(0 7px 8px rgba(24, 35, 38, .18));
     }
 
     .banner-image-shell img {
