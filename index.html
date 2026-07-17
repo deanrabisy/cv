@@ -448,9 +448,15 @@
     .banner-strip::after {
       content: "";
       position: absolute;
-      inset: 0;
+      top: 0;
+      bottom: 0;
+      left: -6vw;
+      right: -6vw;
       z-index: 0;
-      display: none;
+      background: rgba(0, 0, 0, .36);
+      clip-path: ellipse(84% 72% at 50% 0);
+      filter: blur(4px);
+      transform: translateY(4px);
       pointer-events: none;
     }
 
@@ -462,7 +468,6 @@
       background: var(--paper);
       border-bottom: 0;
       clip-path: ellipse(84% 72% at 50% 0);
-      filter: drop-shadow(0 2px 1px rgba(0, 0, 0, .34)) drop-shadow(0 7px 8px rgba(24, 35, 38, .18));
     }
 
     .banner-image-shell img {
