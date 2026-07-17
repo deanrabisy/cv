@@ -448,15 +448,12 @@
     .banner-strip::after {
       content: "";
       position: absolute;
-      top: 0;
-      bottom: 0;
-      left: -6vw;
-      right: -6vw;
+      inset: 0;
       z-index: 0;
-      background: rgba(0, 0, 0, .36);
+      background: rgba(255, 255, 255, .78);
       clip-path: ellipse(84% 72% at 50% 0);
-      filter: blur(4px);
-      transform: translateY(4px);
+      filter: drop-shadow(0 6px 12px rgba(23, 34, 36, .14));
+      transform: translateY(5px);
       pointer-events: none;
     }
 
