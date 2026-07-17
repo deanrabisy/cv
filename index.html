@@ -10,7 +10,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@500;600;700;800&display=swap" rel="stylesheet">
-  <link rel="preload" as="image" href="assets/banner-structured-option-3.png" fetchpriority="high">
+  <link rel="preload" as="image" href="assets/banner-cv-shadow.png" fetchpriority="high">
   <link rel="preload" as="image" href="assets/cv-nav-live-style-alpha/portfolio-off.png">
   <link rel="preload" as="image" href="assets/cv-nav-live-style-alpha/linkedin-off.png">
   <link rel="preload" as="image" href="assets/cv-nav-live-style-alpha/phone-off.png">
@@ -443,38 +443,32 @@
       height: clamp(86px, 13vw, 128px);
       overflow: visible;
       background: transparent;
-      isolation: isolate;
     }
 
     .banner-strip::after {
       content: "";
       position: absolute;
       inset: 0;
-      z-index: 1;
-      background: rgba(23, 34, 36, .22);
-      clip-path: ellipse(84% 72% at 50% 0);
-      filter: blur(10px);
-      transform: translateY(10px);
+      display: none;
       pointer-events: none;
     }
 
     .banner-image-shell {
       position: relative;
-      z-index: 2;
+      z-index: 1;
       height: 100%;
       overflow: hidden;
-      background: var(--paper);
+      background: transparent;
       border-bottom: 0;
-      clip-path: ellipse(84% 72% at 50% 0);
     }
 
     .banner-image-shell img {
       height: 100%;
-      object-fit: cover;
-      object-position: center 35%;
-      filter: saturate(1.08) contrast(.98) brightness(1.02);
-      opacity: .58;
-      transform: scaleY(-1);
+      object-fit: fill;
+      object-position: center;
+      filter: none;
+      opacity: 1;
+      transform: none;
     }
 
     .cv-main {
@@ -1133,7 +1127,7 @@
   <main id="top">
     <div class="banner-strip" aria-label="Portfolio-style banner">
       <div class="banner-image-shell">
-        <img src="assets/banner-structured-option-3.png" alt="">
+        <img src="assets/banner-cv-shadow.png" alt="">
       </div>
     </div>
 
