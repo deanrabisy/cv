@@ -449,12 +449,8 @@
       content: "";
       position: absolute;
       inset: 0;
-      z-index: 0;
-      background: rgba(23, 34, 36, .18);
-      clip-path: ellipse(84% 72% at 50% 0);
-      filter: blur(10px);
-      opacity: .72;
-      transform: translateY(9px);
+      z-index: 2;
+      background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100' preserveAspectRatio='none'%3E%3Cpath d='M 7 58 C 24 71 76 71 93 58' fill='none' stroke='black' stroke-width='0.9' stroke-linecap='round' opacity='0.72'/%3E%3C/svg%3E") center top / 100% 100% no-repeat;
       pointer-events: none;
     }
 
@@ -463,8 +459,8 @@
       z-index: 1;
       height: 100%;
       overflow: hidden;
-      background: var(--wash);
-      border-bottom: 1px solid rgba(36, 94, 104, .08);
+      background: transparent;
+      border-bottom: 0;
       clip-path: ellipse(84% 72% at 50% 0);
     }
 
@@ -1021,7 +1017,7 @@
       }
 
       .banner-strip {
-        background: var(--wash);
+        background: transparent;
       }
 
       .nav-icon,
