@@ -440,7 +440,7 @@
       position: sticky;
       top: var(--sticky-header-height);
       z-index: 20;
-      height: clamp(86px, 13vw, 128px);
+      height: calc(clamp(86px, 13vw, 128px) + 3cm);
       overflow: visible;
       background: transparent;
     }
@@ -887,7 +887,7 @@
       }
 
       .banner-strip {
-        height: 82px;
+        height: calc(82px + 3cm);
       }
 
       .cv-main {
