@@ -98,9 +98,9 @@
 
     .brand-name {
       display: inline-flex;
-      align-items: baseline;
+      align-items: center;
       gap: 10px;
-      color: var(--ink);
+      color: #245e68;
       line-height: 1.1;
       text-decoration: none;
       white-space: nowrap;
@@ -108,17 +108,19 @@
 
     .brand-line {
       display: inline-flex;
-      align-items: baseline;
+      align-items: center;
       gap: 10px;
     }
 
     .brand-name strong {
+      display: inline-flex;
+      align-items: center;
       font-size: clamp(1.22rem, 1.9vw, 1.62rem);
       font-weight: 520;
     }
 
     .brand-name span {
-      color: var(--muted);
+      color: inherit;
       font-size: .94rem;
       font-weight: 400;
     }
@@ -130,12 +132,13 @@
       height: 4px;
       margin-left: 10px;
       border-radius: 50%;
-      background: var(--blue);
-      vertical-align: .18em;
+      background: #245e68;
     }
 
-    .brand-hook {
-      color: #245e68;
+    .brand-name .brand-hook {
+      display: inline-flex;
+      align-items: center;
+      color: inherit;
       font-size: clamp(.72rem, .85vw, .84rem);
       font-weight: 400;
       line-height: 1.15;
@@ -149,7 +152,6 @@
       margin-right: 10px;
       border-radius: 50%;
       background: #245e68;
-      vertical-align: .18em;
     }
 
     .header-contact-link {
