@@ -11,6 +11,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@500;600;700;800&display=swap" rel="stylesheet">
   <link rel="preload" as="image" href="assets/banner-cv-shadow.png" fetchpriority="high">
+  <link rel="preload" as="image" href="assets/banner-cv-shadow-mobile.png" media="(max-width: 620px)">
   <link rel="preload" as="image" href="assets/cv-nav-live-style-alpha/portfolio-off.png">
   <link rel="preload" as="image" href="assets/cv-nav-live-style-alpha/linkedin-off.png">
   <link rel="preload" as="image" href="assets/cv-nav-live-style-alpha/phone-off.png">
@@ -791,6 +792,12 @@
 
       body {
         font-size: 15px;
+        padding-top: calc(var(--sticky-header-height) + 138px);
+      }
+
+      .site-nav {
+        position: fixed;
+        inset: 0 0 auto;
       }
 
       .nav-inner {
@@ -935,7 +942,11 @@
       }
 
       .banner-strip {
-        height: calc(82px + 1.5cm);
+        position: fixed;
+        top: var(--sticky-header-height);
+        left: 0;
+        right: 0;
+        height: 138px;
       }
 
       .cv-main {
@@ -1178,7 +1189,10 @@
   <main id="top">
     <div class="banner-strip" aria-label="Portfolio-style banner">
       <div class="banner-image-shell">
-        <img src="assets/banner-cv-shadow.png" alt="">
+        <picture>
+          <source srcset="assets/banner-cv-shadow-mobile.png" media="(max-width: 620px)">
+          <img src="assets/banner-cv-shadow.png" alt="">
+        </picture>
       </div>
     </div>
 
