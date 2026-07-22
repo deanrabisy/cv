@@ -99,7 +99,7 @@
 
     .brand-name {
       display: inline-flex;
-      align-items: flex-end;
+      align-items: baseline;
       gap: 10px;
       color: #245e68;
       line-height: 1.1;
@@ -109,13 +109,13 @@
 
     .brand-line {
       display: inline-flex;
-      align-items: flex-end;
+      align-items: baseline;
       gap: 10px;
     }
 
     .brand-name strong {
       display: inline-flex;
-      align-items: center;
+      align-items: baseline;
       font-size: clamp(1.22rem, 1.9vw, 1.62rem);
       font-weight: 520;
     }
@@ -128,17 +128,20 @@
 
     .brand-name strong::after {
       content: "";
-      display: inline-block;
+      display: inline-flex;
+      flex: 0 0 auto;
       width: 4px;
       height: 4px;
       margin-left: 10px;
       border-radius: 50%;
       background: #245e68;
+      align-self: center;
+      transform: translateY(.04em);
     }
 
     .brand-name .brand-hook {
       display: inline-flex;
-      align-items: flex-end;
+      align-items: baseline;
       color: inherit;
       font-size: .94rem;
       font-weight: 400;
@@ -147,12 +150,15 @@
 
     .brand-hook::before {
       content: "";
-      display: inline-block;
+      display: inline-flex;
+      flex: 0 0 auto;
       width: 4px;
       height: 4px;
       margin-right: 10px;
       border-radius: 50%;
       background: #245e68;
+      align-self: center;
+      transform: translateY(.04em);
     }
 
     .header-contact-link {
