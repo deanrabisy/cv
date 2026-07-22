@@ -505,6 +505,15 @@
       scroll-margin-top: calc(var(--sticky-header-height) + clamp(104px, 13vw, 146px));
     }
 
+    .mobile-position-hook {
+      display: none;
+      color: #245e68;
+      font-family: var(--font-flow);
+      font-size: .86rem;
+      font-weight: 700;
+      line-height: 1.2;
+    }
+
     .contact-actions .nav-links {
       display: grid;
       grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -837,6 +846,11 @@
         display: none;
       }
 
+      .mobile-position-hook {
+        display: block;
+        margin-bottom: 16px;
+      }
+
       .site-nav .nav-visual-link,
       .site-nav .nav-contact,
       .contact-actions .nav-visual-link {
@@ -1167,6 +1181,7 @@
     </div>
 
     <div class="cv-main">
+      <div class="wrap mobile-position-hook">Research | Systems Design | Operations</div>
       <section class="wrap contact-actions" id="contact-actions" aria-label="Contact actions">
         <div class="nav-links">
         <a class="nav-visual-link" href="https://deanrabisy.github.io/portfolio/" aria-label="Open portfolio">
